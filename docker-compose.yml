@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  wordlearner:
+    build: .
+    container_name: remember-me
+    ports:
+      - "8080:8080"
+    volumes:
+      - wordlearner-data:/app/data
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+    restart: unless-stopped
+
+volumes:
+  wordlearner-data:
